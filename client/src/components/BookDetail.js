@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import GET_BOOK_QUERY from '../apollo/queries/getBook'
 
-// history.push("/")
 const BookDetail = ({ match }) => (
   <Query query={GET_BOOK_QUERY} variables={{ bookId: parseInt(match.params.bookId) }}>
     {

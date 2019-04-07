@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import loadable from '@loadable/component'
 import client from '../apollo/client'
@@ -33,8 +33,10 @@ const App = () => {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <Route path="/" exact component={Main} />
-        <Route path="/books/:bookId" component={BookDetail} />
+        <Switch>
+          <Route path="/" exact component={Main} />
+          <Route path="/books/:bookId" component={BookDetail} />
+        </Switch>
       </Router>
     </ApolloProvider>
   )
