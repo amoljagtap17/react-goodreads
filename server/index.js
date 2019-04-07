@@ -1,6 +1,8 @@
 const { ApolloServer, gql } = require('apollo-server')
 const getBooks = require('./rest')
 
+const books = require('./dummyJSON')
+
 const typeDefs = gql`
   type Book {
     bookId: Int
@@ -17,7 +19,8 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    books: (parent, args, context, info) => getBooks(args.searchTerm)
+    // books: (parent, args, context, info) => getBooks(args.searchTerm)
+    books: (parent, args, context, info) => books
   }
 }
 
