@@ -4,7 +4,7 @@ import { Query } from 'react-apollo'
 import GET_BOOK_QUERY from '../apollo/queries/getBook'
 
 // history.push("/")
-const BookDetail = ({ history, match }) => (
+const BookDetail = ({ match }) => (
   <Query query={GET_BOOK_QUERY} variables={{ bookId: parseInt(match.params.bookId) }}>
     {
       ({ loading, error, data }) => {

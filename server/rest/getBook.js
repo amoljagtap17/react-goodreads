@@ -20,15 +20,15 @@ const getBook = async bookId => {
     const book = {
       bookId: json.id,
       title: json.title,
-      isbn: json.isbn,
+      isbn: typeof json.isbn === 'object' ? 0 : json.isbn,
       imageUrl: json.image_url,
       publication: {
-        year: json.publication_year,
-        month: json.publication_month,
-        day: json.publication_day,
+        year: typeof json.publication_year === 'object' ? 0 : json.publication_year,
+        month: typeof json.publication_month === 'object' ? 0 : json.publication_month,
+        day: typeof json.publication_day === 'object' ? 0 : json.publication_day,
       },
-      publisher: json.publisher,
-      description: json.description,
+      publisher: typeof json.publisher === 'object' ? '' : json.publisher,
+      description: typeof json.description === 'object' ? '' : json.description,
       work: {
         reviewsCount: json.work.reviews_count.val,
         ratingsSum: json.work.ratings_sum.val,
@@ -40,7 +40,7 @@ const getBook = async bookId => {
       }
     }
 
-    // console.log('book', book)
+    console.log('book', book)
 
     return book
 
