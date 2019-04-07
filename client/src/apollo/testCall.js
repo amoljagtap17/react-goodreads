@@ -1,19 +1,9 @@
-import gql from 'graphql-tag'
 import client from './client'
+import getBooksQuery from './queries/getBooks'
 
 const testFunc = () => {
   client.query({
-    query: gql`
-    {
-      books(searchTerm: "graphql") {
-        bookId
-        avgRating
-        title
-        author
-        imageUrl
-      }
-    }
-  `
+    query: getBooksQuery
   }).then(result => console.log('result', result.data))
 }
 
