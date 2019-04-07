@@ -29,7 +29,7 @@ const getBooks = async searchTerm => {
         avgRating: book.average_rating.type === undefined ? book.average_rating : book.average_rating.val,
         title: book.best_book.title,
         author: book.best_book.author.name,
-        imageUrl: book.best_book.small_image_url
+        imageUrl: book.best_book.image_url
       }
     })
 
