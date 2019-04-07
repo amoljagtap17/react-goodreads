@@ -1,0 +1,11 @@
+{
+  "name": "react-goodreads",
+  "version": "1.0.0",
+  "description": "React app using the GoodReads API to search and display books information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AJ",
+  "license": "ISC"
+}
