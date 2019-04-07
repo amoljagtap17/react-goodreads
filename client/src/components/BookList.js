@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import getBooksQuery from '../apollo/queries/getBooks'
+import Book from './Book'
 
 const BookList = () => (
   <Query query={getBooksQuery}>
@@ -10,12 +11,22 @@ const BookList = () => (
 
         if (error) return <p>Error...</p>
 
-        return data.books.map(({ bookId, author, avgRating, imageUrl, title }) => (
-          <div key={bookId}>
-            <p>{author}</p>
-            <p>{title} {avgRating}</p>
+        return (
+          <div className="grid-container">
+            <div className="grid-x grid-padding-x medium-up-3">
+              {
+                data.books.map(({ bookId, author, imageUrl, title }) => (
+                  <Book
+                    key={bookId}
+                    bookId={bookId}
+                    author={author}
+                    imageUrl={imageUrl}
+                    title={title} />
+                ))
+              }
+            </div>
           </div>
-        ))
+        )
       }
     }
   </Query>

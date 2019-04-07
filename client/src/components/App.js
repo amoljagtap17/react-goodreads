@@ -8,6 +8,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Header />
+      <hr />
       <BookList />
     </ApolloProvider>
   )
