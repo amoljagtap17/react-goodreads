@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon server/index.js",
     "client": "cd client && npm start",
-    "dev": "concurrently --names \"server,client\" \"npm run server\" \"npm run client --silent\""
+    "dev": "concurrently --names \"server,client\" \"npm run server\" \"npm run client --silent\"",
+    "start": "npm run dev"
   },
   "author": "AJ",
   "license": "ISC",
@@ -19,5 +20,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
+  },
+  "engines": {
+    "node": "11.6.0"
   }
 }
