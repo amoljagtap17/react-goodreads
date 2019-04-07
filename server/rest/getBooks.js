@@ -22,8 +22,7 @@ const getBooks = async searchTerm => {
 
     const json = parser.toJson(xml, options).GoodreadsResponse.search.results.work
 
-    books = json.map(book => {
-
+    const books = json.map(book => {
       return {
         bookId: book.best_book.id.val,
         avgRating: book.average_rating.type === undefined ? book.average_rating : book.average_rating.val,
@@ -33,7 +32,7 @@ const getBooks = async searchTerm => {
       }
     })
 
-    console.log(books)
+    // console.log(books)
 
     return books
 
