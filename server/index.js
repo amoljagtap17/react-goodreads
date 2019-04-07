@@ -2,14 +2,22 @@ const { ApolloServer, gql } = require('apollo-server')
 const getBooks = require('./rest')
 
 const typeDefs = gql`
+  type Book {
+    bookId: Int
+    avgRating: Float
+    title: String
+    author: String
+    imageUrl: String
+  }
+
   type Query {
-    hello: String!
+    books(searchTerm: String!): [Book]
   }
 `
 
 const resolvers = {
   Query: {
-    hello: (parent, args, context, info) => getBooks('nodejs')
+    books: (parent, args, context, info) => getBooks(args.searchTerm)
   }
 }
 
