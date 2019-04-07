@@ -1,10 +1,9 @@
 import gql from 'graphql-tag'
 
-const getBooksQuery = gql`
-  {
-    books(searchTerm: "graphql") {
+const GET_BOOKS_QUERY = gql`
+  query Books($searchTerm: String!) {
+    books(searchTerm: $searchTerm) {
       bookId
-      avgRating
       title
       author
       imageUrl
@@ -12,4 +11,4 @@ const getBooksQuery = gql`
   }
 `
 
-export default getBooksQuery
+export default GET_BOOKS_QUERY

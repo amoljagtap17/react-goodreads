@@ -1,10 +1,10 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import getBooksQuery from '../apollo/queries/getBooks'
+import GET_BOOKS_QUERY from '../apollo/queries/getBooks'
 import Book from './Book'
 
-const BookList = () => (
-  <Query query={getBooksQuery}>
+const BookList = ({ searchTerm }) => (
+  <Query query={GET_BOOKS_QUERY} variables={{ searchTerm }}>
     {
       ({ loading, error, data }) => {
         if (loading) return <p>Loading...</p>

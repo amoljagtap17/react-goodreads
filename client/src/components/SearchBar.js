@@ -1,23 +1,28 @@
 import React from 'react'
 
-const SearchBar = () => (
-  <form onSubmit={event => console.log(event)}>
-    <div className="grid-container">
-      <div className="grid-x grid-padding-x">
-        <div className="cell">
-          <fieldset className="fieldset">
-            <legend>Search Books by title</legend>
-            <div className="input-group">
-              <input className="input-group-field" type="text" name="searchTerm" id="searchTerm" placeholder="Enter Search String" />
-              <div className="input-group-button">
-                <input type="submit" className="button" value="Search" />
-              </div>
+const SearchBar = ({ searchTerm, setSearchTerm, onSearchSubmit }) => (
+  <div className="grid-container">
+    <div className="grid-x grid-padding-x">
+      <div className="cell">
+        <fieldset className="fieldset">
+          <legend>Search Books by title</legend>
+          <div className="input-group">
+            <input
+              className="input-group-field"
+              type="text"
+              placeholder="Enter Search String"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)} />
+            <div className="input-group-button">
+              <button
+                className="button"
+                onClick={onSearchSubmit}>Search</button>
             </div>
-          </fieldset>
-        </div>
+          </div>
+        </fieldset>
       </div>
     </div>
-  </form>
+  </div>
 )
 
 export default SearchBar
