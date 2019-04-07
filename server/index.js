@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server')
+const getBooks = require('./rest')
 
 const typeDefs = gql`
   type Query {
@@ -8,7 +9,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    hello: (parent, args, context, info) => 'Hello World!'
+    hello: (parent, args, context, info) => getBooks('nodejs')
   }
 }
 
