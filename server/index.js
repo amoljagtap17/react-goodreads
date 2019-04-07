@@ -1,4 +1,5 @@
-const { ApolloServer, gql } = require('apollo-server')
+const express = require('express')
+const { ApolloServer, gql } = require('apollo-server-express')
 const getBooks = require('./rest/getBooks')
 const getBook = require('./rest/getBook')
 
@@ -56,8 +57,26 @@ const resolvers = {
   }
 }
 
+const app = express()
+
 const server = new ApolloServer({ typeDefs, resolvers })
 
-server.listen().then(({ url }) => {
+server.applyMiddleware({ app })
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
+
+const PORT = process.env.PORT || 4444
+
+/* server.listen({ port: PORT }).then(({ url }) => {
   console.log(`Server ready at ${url}`)
-})
+}) */
+
+app.listen(PORT, () =>
+  console.log(`Server listening on PORT ${PORT}`)
+)
