@@ -4,7 +4,7 @@
   "description": "React app using the GoodReads API to search and display books information",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon server/index.js"
   },
   "author": "AJ",
   "license": "ISC",
