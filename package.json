@@ -4,13 +4,16 @@
   "description": "React app using the GoodReads API to search and display books information",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently --names \"server,client\" \"npm run server\" \"npm run client --silent\""
   },
   "author": "AJ",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.4.8",
     "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
     "graphql": "^14.2.1",
     "xml2json": "^0.11.2"
   },
