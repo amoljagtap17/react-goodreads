@@ -53,4 +53,5 @@ To run the application locally in development mode, please follow the below step
 4. Extend the application by adding paginations to display all searched results.
 5. Extend the application by adding functionality to search for author and isbn as well instead of just by title.
 6. Extend the application by displaying the reviews on the book display page.
-7. Add test suite to the application :)
+7. Add test suite to the application. :)
+8. Optimize the current code.
