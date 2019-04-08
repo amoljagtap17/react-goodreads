@@ -38,6 +38,10 @@ To run the application locally in development mode, please follow the below step
 **Starting the application in development mode using the following command ran in terminal:**
 
     SET KEY=<YOUR_KEY> && npm run dev
+    
+**Running Tests for React**
+    
+    cd client && npm run test
 
 # Features In Current Version:
 
